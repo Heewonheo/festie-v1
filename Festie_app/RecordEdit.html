@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Festie</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Festie">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta charset="utf-8">
+<title>기록 — 리포트 편집</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+*{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
+a{color:#0A0A0A}a:hover{color:#0A0A0A}
+input::placeholder,textarea::placeholder{color:rgba(10,10,10,0.55);opacity:1}
+.rp-strip{scrollbar-width:none}
+.rp-strip::-webkit-scrollbar{display:none}
+</style>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{display:block!important}
+#festie-stage{position:fixed;left:0;top:0;width:390px}
+#festie-stage>div{width:390px!important}
+#festie-stage main{overflow-y:auto!important}
+.app-mode .sb{height:max(44px, env(safe-area-inset-top))!important;box-sizing:border-box;align-items:flex-end!important}
+.app-mode .sb>*{visibility:hidden}
+</style>
+<script>
+(function(){
+  var app = navigator.standalone || (window.matchMedia && (matchMedia('(display-mode: standalone)').matches || matchMedia('(display-mode: fullscreen)').matches));
+  if (app) document.documentElement.classList.add('app-mode');
+  function fit(){
+    var st=document.getElementById('festie-stage'); if(!st) return;
+    var w=window.innerWidth, h=window.innerHeight, z=w/390;
+    st.style.zoom=z;
+    st.firstElementChild.style.height=(h/z)+'px';
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var root=document.body.firstElementChild;
+    var st=document.createElement('div'); st.id='festie-stage';
+    document.body.insertBefore(st, root); st.appendChild(root);
+    var bg=getComputedStyle(root).backgroundColor; document.documentElement.style.background=bg; document.body.style.background=bg;
+    fit();
+  });
+  window.addEventListener('resize',fit); window.addEventListener('orientationchange',function(){setTimeout(fit,200)});
+})();
+</script>
+</head>
+<body>
+
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFFACD; color: #0A0A0A; display: flex; flex-direction: column; font-family: 'Hanken Grotesk', 'Noto Sans KR', sans-serif; overflow: hidden">
+
+  <div class="sb" style="height: 44px; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0">
+    <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.02em; padding-top: 3px">9:41</span>
+    <svg width="44" height="12" viewBox="0 0 44 12" aria-hidden="true">
+      <rect x="0" y="8" width="3" height="4" rx="1" fill="#0A0A0A"></rect>
+      <rect x="5" y="5" width="3" height="7" rx="1" fill="#0A0A0A"></rect>
+      <rect x="10" y="2" width="3" height="10" rx="1" fill="#0A0A0A"></rect>
+      <rect x="18.75" y="0.75" width="21.5" height="10.5" rx="3" fill="none" stroke="#0A0A0A" stroke-width="1.5"></rect>
+      <rect x="21" y="3" width="15" height="6" rx="1.5" fill="#0A0A0A"></rect>
+      <rect x="41.5" y="4" width="1.5" height="4" rx="0.75" fill="#0A0A0A"></rect>
+    </svg>
+  </div>
+
+  <main style="flex: 1; display: flex; flex-direction: column; padding: 12px 28px 0; min-height: 0; overflow-y: auto">
+    <div style="display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin-bottom: 8px; flex-shrink: 0">
+      <a href="RecordHomeNew.html" style="display: flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.12em; color: #0A0A0A"><span aria-hidden="true" style="display: flex; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; flex-shrink: 0"><path d="M20 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></span><span style="padding-top: 2px">CANCEL</span></a>
+      <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72); padding-top: 2px">DRAFT SAVED</span>
+    </div>
+
+    <section style="border-bottom: 1.5px solid #0A0A0A; padding: 0 0 22px; flex-shrink: 0">
+      <h1 style="margin: 0; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 0.9; padding-top: 4px; white-space: nowrap">EDIT REPORT</h1>
+      <p style="margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: rgba(10,10,10,0.72)">Grand Mint Festival 2026 · Oct 17–18</p>
+    </section>
+
+    <section style="border-bottom: 1.5px solid #0A0A0A; padding-bottom: 20px; flex-shrink: 0">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0 4px">
+        <h2 style="margin: 0; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em">PHOTOS</h2>
+        <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">4 / 24</span>
+      </div>
+      <span style="display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 13px; color: rgba(10,10,10,0.72); margin-bottom: 12px">탭해서 리포트에 넣을 사진을 골라요 · 첫 장이 대표 사진</span>
+      <div class="rp-strip" style="display: flex; gap: 8px; overflow-x: auto; margin-right: -28px; padding-right: 28px">
+        
+          <button type="button" aria-pressed="true" aria-label="사진 1 선택됨" style="position: relative; flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; padding: 0; cursor: pointer; border: 1.5px solid #0A0A0A; background-color: #0A0A0A; overflow: hidden; opacity: 1">
+            <img src="images/report_r2.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            
+              <span style="position: absolute; z-index: 1; top: 0; right: 0; width: 22px; height: 22px; background: #0A0A0A; display: flex; align-items: center; justify-content: center">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+              </span>
+            
+            
+              <span style="position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; background: #0A0A0A; color: #FFFACD; padding: 4px 0 2px; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.2em; text-align: center">COVER</span>
+            
+          </button>
+        
+          <button type="button" aria-pressed="true" aria-label="사진 2 선택됨" style="position: relative; flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; padding: 0; cursor: pointer; border: 1.5px solid #0A0A0A; background-color: #0A0A0A; overflow: hidden; opacity: 1">
+            <img src="images/report_r7.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            
+              <span style="position: absolute; z-index: 1; top: 0; right: 0; width: 22px; height: 22px; background: #0A0A0A; display: flex; align-items: center; justify-content: center">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+              </span>
+            
+            
+          </button>
+        
+          <button type="button" aria-pressed="true" aria-label="사진 3 선택됨" style="position: relative; flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; padding: 0; cursor: pointer; border: 1.5px solid #0A0A0A; background-color: #0A0A0A; overflow: hidden; opacity: 1">
+            <img src="images/report_r4.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            
+              <span style="position: absolute; z-index: 1; top: 0; right: 0; width: 22px; height: 22px; background: #0A0A0A; display: flex; align-items: center; justify-content: center">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+              </span>
+            
+            
+          </button>
+        
+          <button type="button" aria-pressed="false" aria-label="사진 4" style="position: relative; flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; padding: 0; cursor: pointer; border: 1.5px solid rgba(10,10,10,0.25); background-color: #0A0A0A; overflow: hidden; opacity: 0.5">
+            <img src="images/report_r1.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            
+            
+          </button>
+        
+          <button type="button" aria-pressed="true" aria-label="사진 5 선택됨" style="position: relative; flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; padding: 0; cursor: pointer; border: 1.5px solid #0A0A0A; background-color: #0A0A0A; overflow: hidden; opacity: 1">
+            <img src="images/report_r3.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            
+              <span style="position: absolute; z-index: 1; top: 0; right: 0; width: 22px; height: 22px; background: #0A0A0A; display: flex; align-items: center; justify-content: center">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+              </span>
+            
+            
+          </button>
+        
+          <button type="button" aria-pressed="false" aria-label="사진 6" style="position: relative; flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; padding: 0; cursor: pointer; border: 1.5px solid rgba(10,10,10,0.25); background-color: #0A0A0A; overflow: hidden; opacity: 0.5">
+            <img src="images/report_r6.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            
+            
+          </button>
+        
+          <button type="button" aria-pressed="false" aria-label="사진 7" style="position: relative; flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; padding: 0; cursor: pointer; border: 1.5px solid rgba(10,10,10,0.25); background-color: #0A0A0A; overflow: hidden; opacity: 0.5">
+            <img src="images/report_r5.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            
+            
+          </button>
+        
+        <button type="button" aria-label="사진 추가" style="flex-shrink: 0; width: 80px; height: 80px; box-sizing: border-box; border: 1.5px dashed rgba(10,10,10,0.62); background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(10,10,10,0.72); font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.16em">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+          <span>ADD</span>
+        </button>
+      </div>
+    </section>
+
+    <section style="border-bottom: 1.5px solid #0A0A0A; padding-bottom: 22px; flex-shrink: 0">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0 12px">
+        <label for="rp-highlight" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em">HIGHLIGHT</label>
+        <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">12 / 40</span>
+      </div>
+      <input id="rp-highlight" type="text" maxlength="40" value="올해 최고의 밤이었다." placeholder="오늘 밤을 한 줄로 남겨봐요" style="width: 100%; box-sizing: border-box; height: 58px; border: 1.5px solid #0A0A0A; background: transparent; padding: 0 16px; font-family: 'Hanken Grotesk', 'Noto Sans KR', sans-serif; font-weight: 500; font-style: italic; font-size: 17px; color: #0A0A0A; outline-offset: 2px">
+    </section>
+
+    <section style="border-bottom: 1.5px solid #0A0A0A; padding-bottom: 14px; flex-shrink: 0">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0 6px">
+        <h2 style="margin: 0; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em">RATING</h2>
+        <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">5 / 5</span>
+      </div>
+      <div role="radiogroup" aria-label="별점" style="display: flex; margin-left: -10px">
+        
+          <button type="button" role="radio" aria-checked="false" aria-label="1점" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; cursor: pointer; color: #0A0A0A"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 2.6l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 16.9l-5.8 3.2 1.4-6.4-4.9-4.4 6.5-.7z"></path></svg></button>
+        
+          <button type="button" role="radio" aria-checked="false" aria-label="2점" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; cursor: pointer; color: #0A0A0A"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 2.6l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 16.9l-5.8 3.2 1.4-6.4-4.9-4.4 6.5-.7z"></path></svg></button>
+        
+          <button type="button" role="radio" aria-checked="false" aria-label="3점" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; cursor: pointer; color: #0A0A0A"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 2.6l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 16.9l-5.8 3.2 1.4-6.4-4.9-4.4 6.5-.7z"></path></svg></button>
+        
+          <button type="button" role="radio" aria-checked="false" aria-label="4점" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; cursor: pointer; color: #0A0A0A"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 2.6l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 16.9l-5.8 3.2 1.4-6.4-4.9-4.4 6.5-.7z"></path></svg></button>
+        
+          <button type="button" role="radio" aria-checked="true" aria-label="5점" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; cursor: pointer; color: #0A0A0A"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 2.6l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 16.9l-5.8 3.2 1.4-6.4-4.9-4.4 6.5-.7z"></path></svg></button>
+        
+      </div>
+    </section>
+
+    <section style="border-bottom: 1.5px solid #0A0A0A; flex-shrink: 0">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0 4px">
+        <h2 style="margin: 0; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em">ARTISTS</h2>
+        <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">2 SEEN</span>
+      </div>
+      <span style="display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 13px; color: rgba(10,10,10,0.72); margin-bottom: 12px">내 타임테이블에서 불러왔어요 · 실제로 본 공연만 체크</span>
+      <ul style="list-style: none; margin: 0; padding: 0">
+        
+          <li style="border-top: 1px solid rgba(10,10,10,0.3)">
+            <button type="button" aria-pressed="true" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 0; padding: 0; background: transparent; cursor: pointer; text-align: left; color: #0A0A0A">
+              <span style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+                <span style="font-weight: 500; font-size: 16px; color: #0A0A0A">페퍼톤스</span>
+                <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: rgba(10,10,10,0.62); padding-top: 1px">17:20 · MINT BREEZE</span>
+              </span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+            </button>
+          </li>
+        
+          <li style="border-top: 1px solid rgba(10,10,10,0.3)">
+            <button type="button" aria-pressed="false" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 0; padding: 0; background: transparent; cursor: pointer; text-align: left; color: #0A0A0A">
+              <span style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+                <span style="font-weight: 500; font-size: 16px; color: rgba(10,10,10,0.5)">터치드</span>
+                <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: rgba(10,10,10,0.62); padding-top: 1px">18:50 · MIDNIGHT SUNSET</span>
+              </span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(10,10,10,0.2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+            </button>
+          </li>
+        
+          <li style="border-top: 1px solid rgba(10,10,10,0.3)">
+            <button type="button" aria-pressed="true" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 0; padding: 0; background: transparent; cursor: pointer; text-align: left; color: #0A0A0A">
+              <span style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+                <span style="font-weight: 500; font-size: 16px; color: #0A0A0A">이소라</span>
+                <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: rgba(10,10,10,0.62); padding-top: 1px">20:20 · MINT BREEZE</span>
+              </span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+            </button>
+          </li>
+        
+      </ul>
+      <a href="#" style="min-height: 44px; display: flex; align-items: center; gap: 8px; border-top: 1px solid rgba(10,10,10,0.3); text-decoration: none; font-family: 'Noto Sans KR', sans-serif; font-size: 13px; color: rgba(10,10,10,0.72)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display: block; flex-shrink: 0"><path d="M12 5v14M5 12h14"></path></svg><span>아티스트 추가</span></a>
+    </section>
+
+    <section style="border-bottom: 1.5px solid #0A0A0A; padding-bottom: 22px; flex-shrink: 0">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0 12px">
+        <label for="rp-review" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em">REVIEW</label>
+        <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">75 / 300</span>
+      </div>
+      <textarea id="rp-review" rows="4" maxlength="300" value="이소라 ‘바람이 분다’에서 다 같이 조용해진 순간이 아직도 생생함. 가을 올림픽공원 날씨도 완벽했고, 내년에도 꼭 가고 싶은 페스티벌." placeholder="기억하고 싶은 순간을 자유롭게 적어봐요" style="display: block; width: 100%; box-sizing: border-box; border: 1.5px solid #0A0A0A; background: transparent; padding: 14px 16px; resize: none; font-family: 'Noto Sans KR', sans-serif; font-size: 14px; line-height: 1.8; color: #0A0A0A; outline-offset: 2px">이소라 ‘바람이 분다’에서 다 같이 조용해진 순간이 아직도 생생함. 가을 올림픽공원 날씨도 완벽했고, 내년에도 꼭 가고 싶은 페스티벌.</textarea>
+    </section>
+
+    <div style="padding: 20px 0 24px; flex-shrink: 0">
+      <button type="button" aria-pressed="true" style="width: 100%; min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 1.5px solid #0A0A0A; background: #0A0A0A; color: #FFFACD; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.18em">
+        
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFACD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+        
+        <span style="padding-top: 3px">WOULD GO AGAIN</span>
+      </button>
+    </div>
+  </main>
+
+  <div style="flex-shrink: 0">
+    <a href="RecordDetailPhoto.html" style="min-height: 88px; box-sizing: border-box; padding-bottom: 22px; display: flex; align-items: center; justify-content: center; background: #0A0A0A; color: #FFFACD; text-decoration: none; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.14em"><span style="padding-top: 3px">SAVE REPORT</span></a>
+  </div>
+</div>
+
+</body>
+</html>
