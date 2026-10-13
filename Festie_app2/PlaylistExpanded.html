@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Festie</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Festie">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta charset="utf-8">
+<title>준비 — 예습 플레이리스트</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+*{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
+a{color:#0A0A0A}a:hover{color:#0A0A0A}
+input::placeholder,textarea::placeholder{color:rgba(10,10,10,0.55);opacity:1}
+</style>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{display:block!important}
+#festie-stage{position:fixed;left:0;top:0;width:390px}
+#festie-stage>div{width:390px!important}
+#festie-stage main{overflow-y:auto!important}
+.app-mode .sb{height:max(44px, env(safe-area-inset-top))!important;box-sizing:border-box;align-items:flex-end!important}
+.app-mode .sb>*{visibility:hidden}
+#festie-vh{position:fixed;left:0;top:0;width:1px;height:100vh;height:100lvh;visibility:hidden;pointer-events:none}
+.app-mode nav[aria-label="메인 탭"]{padding-bottom:max(22px, env(safe-area-inset-bottom))!important}
+</style>
+<script>
+(function(){
+  var app = navigator.standalone || (window.matchMedia && (matchMedia('(display-mode: standalone)').matches || matchMedia('(display-mode: fullscreen)').matches));
+  if (app) document.documentElement.classList.add('app-mode');
+  function fit(){
+    var st=document.getElementById('festie-stage'); if(!st) return;
+    var w=window.innerWidth, z=w/390, pr=document.getElementById('festie-vh'), h=Math.max(window.innerHeight, document.documentElement.clientHeight, pr?pr.offsetHeight:0);
+    st.style.zoom=z;
+    st.firstElementChild.style.height=(h/z)+'px';
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var root=document.body.firstElementChild;
+    var pr=document.createElement('div'); pr.id='festie-vh'; document.body.appendChild(pr);
+    var st=document.createElement('div'); st.id='festie-stage';
+    document.body.insertBefore(st, root); st.appendChild(root);
+    var bg=getComputedStyle(root).backgroundColor; document.documentElement.style.background=bg; document.body.style.background=bg;
+    fit();
+  });
+  window.addEventListener('resize',fit); window.addEventListener('orientationchange',function(){setTimeout(fit,200)});
+})();
+</script>
+</head>
+<body>
+
+
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #F3D9FF; color: #0A0A0A; display: flex; flex-direction: column; font-family: 'Hanken Grotesk', 'Noto Sans KR', sans-serif; overflow: hidden">
+
+  <div class="sb" style="height: 44px; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0">
+    <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.02em; padding-top: 3px">9:41</span>
+    <svg width="44" height="12" viewBox="0 0 44 12" aria-hidden="true">
+      <rect x="0" y="8" width="3" height="4" rx="1" fill="#0A0A0A"></rect>
+      <rect x="5" y="5" width="3" height="7" rx="1" fill="#0A0A0A"></rect>
+      <rect x="10" y="2" width="3" height="10" rx="1" fill="#0A0A0A"></rect>
+      <rect x="18.75" y="0.75" width="21.5" height="10.5" rx="3" fill="none" stroke="#0A0A0A" stroke-width="1.5"></rect>
+      <rect x="21" y="3" width="15" height="6" rx="1.5" fill="#0A0A0A"></rect>
+      <rect x="41.5" y="4" width="1.5" height="4" rx="0.75" fill="#0A0A0A"></rect>
+    </svg>
+  </div>
+
+  <main style="flex: 1; display: flex; flex-direction: column; padding: 12px 28px 0; min-height: 0">
+    <div style="display: flex; align-items: center; min-height: 44px">
+      <a href="Dashboard.html" style="display: flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.12em; color: #0A0A0A"><span aria-hidden="true" style="display: flex; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; flex-shrink: 0"><path d="M20 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></span><span style="padding-top: 2px">GRAND MINT FESTIVAL</span></a>
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 4px 0 16px">
+      <h1 style="margin: 0; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: -0.02em; line-height: 0.9; padding-top: 4px">PLAYLIST</h1>
+      <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 2px; font-family: 'Noto Sans KR', sans-serif">
+        <span style="font-weight: 700; font-size: 16px; line-height: 1.4">내 동선 3팀의 셋리스트로 만들었어요</span>
+        <span style="font-size: 13px; line-height: 1.4; color: rgba(10,10,10,0.72)">최근 공연 셋리스트를 바탕으로 자동 생성돼요</span>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-height: 0; border: 1.5px solid #0A0A0A; display: flex; flex-direction: column">
+      <div style="background: #0A0A0A; color: #F3D9FF; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 16px 18px 14px; flex-shrink: 0">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <span style="display: flex; align-items: center; gap: 8px; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.2em">
+            <span style="padding-top: 2px">AUTO PLAYLIST</span>
+          </span>
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.02em; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">GMF 2026</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0">
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -0.03em; line-height: 0.8; padding-top: 4px">18</span>
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.16em; line-height: 1">TRACKS</span>
+        </div>
+      </div>
+
+      <div style="flex: 1; min-height: 0; overflow-y: auto">
+        
+          <section style="border-top: 0; padding: 14px 16px 6px">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-bottom: 8px">
+              <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+                <span style="font-weight: 600; font-size: 16px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">페퍼톤스</span>
+                <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">17:20 · MINT BREEZE STAGE</span>
+              </div>
+              <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72); flex-shrink: 0">6 TRACKS</span>
+            </div>
+            <ol style="list-style: none; margin: 0; padding: 0">
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">01</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">CHANCE!</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px">OPENER</span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">02</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">행운을 빈다</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">03</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Shine</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">04</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">FAST</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">05</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">New Hippie Generation</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">06</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">21세기의 어떤 날</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px">CLOSER</span>
+                </li>
+              
+            </ol>
+            
+              <a href="Playlist.html" style="text-decoration: none; box-sizing: border-box; width: 100%; min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; border: 0; border-top: 1px solid rgba(10,10,10,0.15); background: transparent; color: #0A0A0A; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.16em">
+                <span style="padding-top: 2px">SHOW LESS</span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(180deg)"><path d="M6 9l6 6 6-6"></path></svg>
+              </a>
+            
+          </section>
+        
+          <section style="border-top: 1.5px solid #0A0A0A; padding: 14px 16px 6px">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-bottom: 8px">
+              <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+                <span style="font-weight: 600; font-size: 16px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">터치드</span>
+                <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">18:50 · CLUB MIDNIGHT SUNSET</span>
+              </div>
+              <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72); flex-shrink: 0">6 TRACKS</span>
+            </div>
+            <ol style="list-style: none; margin: 0; padding: 0">
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">01</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Highlight</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px">OPENER</span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">02</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Hi Bully</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">03</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Fallen Angel</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+            </ol>
+            
+              <a href="PlaylistExpanded.html" style="text-decoration: none; box-sizing: border-box; width: 100%; min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; border: 0; border-top: 1px solid rgba(10,10,10,0.15); background: transparent; color: #0A0A0A; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.16em">
+                <span style="padding-top: 2px">+3 MORE</span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(0deg)"><path d="M6 9l6 6 6-6"></path></svg>
+              </a>
+            
+          </section>
+        
+          <section style="border-top: 1.5px solid #0A0A0A; padding: 14px 16px 6px">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-bottom: 8px">
+              <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+                <span style="font-weight: 600; font-size: 16px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">이소라</span>
+                <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72)">20:20 · MINT BREEZE STAGE</span>
+              </div>
+              <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72); flex-shrink: 0">6 TRACKS</span>
+            </div>
+            <ol style="list-style: none; margin: 0; padding: 0">
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">01</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">처음 느낌 그대로</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px">OPENER</span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">02</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">난 행복해</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+                <li style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 38px; border-top: 1px solid rgba(10,10,10,0.15)">
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; color: rgba(10,10,10,0.72); padding-top: 2px">03</span>
+                  <span style="font-weight: 500; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">너무 다른 널 보면서</span>
+                  <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.12em; color: rgba(10,10,10,0.72); padding-top: 2px"></span>
+                </li>
+              
+            </ol>
+            
+              <a href="PlaylistExpanded.html" style="text-decoration: none; box-sizing: border-box; width: 100%; min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; border: 0; border-top: 1px solid rgba(10,10,10,0.15); background: transparent; color: #0A0A0A; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.16em">
+                <span style="padding-top: 2px">+3 MORE</span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(0deg)"><path d="M6 9l6 6 6-6"></path></svg>
+              </a>
+            
+          </section>
+        
+      </div>
+    </div>
+
+    <div style="padding: 12px 0 14px; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0">
+      
+      <a href="PlaylistSheet.html" style="text-decoration: none; box-sizing: border-box; min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; background: #0A0A0A; color: #F3D9FF; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.14em">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F3D9FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"></path><path d="M7 8l5-5 5 5"></path><path d="M4 14v6h16v-6"></path></svg>
+        <span style="padding-top: 3px">EXPORT PLAYLIST</span>
+      </a>
+    </div>
+  </main>
+
+  <nav aria-label="메인 탭" style="background: #0A0A0A; padding: 8px 28px 22px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); flex-shrink: 0">
+    <a href="DiscoverCarousel.html" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: rgba(243,217,255,0.65)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; line-height: 1">탐색</span>
+    </a>
+    <a href="Main.html" aria-current="page" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: #F3D9FF">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1"></rect><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.04em; line-height: 1">준비</span>
+    </a>
+    <a href="RecordHome.html" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: rgba(243,217,255,0.65)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="1"></rect><circle cx="9" cy="10" r="1.75"></circle><path d="M20.5 15.5l-5-5-9.5 9"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; line-height: 1">기록</span>
+    </a>
+    <a href="#" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: rgba(243,217,255,0.65)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.75"></circle><path d="M4.5 20.5c1.3-3.6 4-5.5 7.5-5.5s6.2 1.9 7.5 5.5"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; line-height: 1">MY</span>
+    </a>
+  </nav>
+
+  
+</div>
+
+</body>
+</html>
