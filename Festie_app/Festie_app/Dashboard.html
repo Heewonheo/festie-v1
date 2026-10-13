@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Festie</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Festie">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta charset="utf-8">
+<title>준비 — 페스티벌 대시보드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+*{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
+a{color:#0A0A0A}a:hover{color:#0A0A0A}
+input::placeholder,textarea::placeholder{color:rgba(10,10,10,0.55);opacity:1}
+</style>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{display:block!important}
+#festie-stage{position:fixed;left:0;top:0;width:390px}
+#festie-stage>div{width:390px!important}
+#festie-stage main{overflow-y:auto!important}
+.app-mode .sb{height:max(44px, env(safe-area-inset-top))!important;box-sizing:border-box;align-items:flex-end!important}
+.app-mode .sb>*{visibility:hidden}
+#festie-vh{position:fixed;left:0;top:0;width:1px;height:100vh;height:100lvh;visibility:hidden;pointer-events:none}
+.app-mode nav[aria-label="메인 탭"]{padding-bottom:max(22px, env(safe-area-inset-bottom))!important}
+</style>
+<script>
+(function(){
+  var app = navigator.standalone || (window.matchMedia && (matchMedia('(display-mode: standalone)').matches || matchMedia('(display-mode: fullscreen)').matches));
+  if (app) document.documentElement.classList.add('app-mode');
+  function fit(){
+    var st=document.getElementById('festie-stage'); if(!st) return;
+    var w=window.innerWidth, z=w/390, pr=document.getElementById('festie-vh'), h=Math.max(window.innerHeight, document.documentElement.clientHeight, pr?pr.offsetHeight:0);
+    st.style.zoom=z;
+    st.firstElementChild.style.height=(h/z)+'px';
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var root=document.body.firstElementChild;
+    var pr=document.createElement('div'); pr.id='festie-vh'; document.body.appendChild(pr);
+    var st=document.createElement('div'); st.id='festie-stage';
+    document.body.insertBefore(st, root); st.appendChild(root);
+    var bg=getComputedStyle(root).backgroundColor; document.documentElement.style.background=bg; document.body.style.background=bg;
+    fit();
+  });
+  window.addEventListener('resize',fit); window.addEventListener('orientationchange',function(){setTimeout(fit,200)});
+})();
+</script>
+</head>
+<body>
+
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F3D9FF; color: #0A0A0A; display: flex; flex-direction: column; font-family: 'Hanken Grotesk', 'Noto Sans KR', sans-serif; overflow: hidden">
+
+  <div class="sb" style="height: 44px; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0">
+    <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.02em; padding-top: 3px">9:41</span>
+    <svg width="44" height="12" viewBox="0 0 44 12" aria-hidden="true">
+      <rect x="0" y="8" width="3" height="4" rx="1" fill="#0A0A0A"></rect>
+      <rect x="5" y="5" width="3" height="7" rx="1" fill="#0A0A0A"></rect>
+      <rect x="10" y="2" width="3" height="10" rx="1" fill="#0A0A0A"></rect>
+      <rect x="18.75" y="0.75" width="21.5" height="10.5" rx="3" fill="none" stroke="#0A0A0A" stroke-width="1.5"></rect>
+      <rect x="21" y="3" width="15" height="6" rx="1.5" fill="#0A0A0A"></rect>
+      <rect x="41.5" y="4" width="1.5" height="4" rx="0.75" fill="#0A0A0A"></rect>
+    </svg>
+  </div>
+
+  <main style="flex: 1; display: flex; flex-direction: column; padding: 12px 28px 0; min-height: 0">
+    <div style="display: flex; align-items: center; min-height: 44px; margin-bottom: 8px">
+      <a href="Main.html" style="display: flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.12em; color: #0A0A0A"><span aria-hidden="true" style="display: flex; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; flex-shrink: 0"><path d="M20 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></span><span style="padding-top: 2px">PREPARE</span></a>
+    </div>
+
+    <section style="padding: 0 0 4px">
+      <div style="display: flex; align-items: flex-end; gap: 16px">
+        <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 56px; letter-spacing: -0.02em; line-height: 0.9; padding-top: 6px; flex-shrink: 0">D-4</span>
+        <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 2px; min-width: 0">
+          <span style="font-family: 'Noto Sans KR', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.35">그민페까지 딱 4일!</span>
+          <span style="font-family: 'Noto Sans KR', sans-serif; font-size: 13px; line-height: 1.4; color: rgba(10,10,10,0.72)">슬슬 짐 쌀 준비해볼까요?</span>
+        </div>
+      </div>
+      <h1 style="margin: 18px 0 4px; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.05; text-transform: uppercase">Grand Mint<br>Festival 2026</h1>
+      <span style="font-size: 13px; line-height: 1.6; color: rgba(10,10,10,0.72)">Oct 17–18 · Olympic Park, Seoul</span>
+    </section>
+
+    <div style="margin-top: 20px; border: 1.5px solid #0A0A0A; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+      <a href="Timetable.html" style="min-width: 0; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border-right: 1.5px solid #0A0A0A; border-bottom: 1.5px solid #0A0A0A; text-decoration: none; color: #0A0A0A">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; margin: -3px 0 0 -3px"><rect x="3.5" y="5" width="17" height="15.5" rx="1"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path><path d="M12 13v3.5l2.2 1.3"></path></svg>
+          <span aria-hidden="true" style="display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; padding-top: 3px">TIMETABLE</span>
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72)">3 PICKS</span>
+        </div>
+      </a>
+      <a href="Playlist.html" style="min-width: 0; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border-bottom: 1.5px solid #0A0A0A; text-decoration: none; color: #0A0A0A">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; margin: -3px 0 0 -3px"><path d="M9 18V5l11-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="17" cy="16" r="3"></circle></svg>
+          <span aria-hidden="true" style="display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; padding-top: 3px">PLAYLIST</span>
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72)">18 TRACKS</span>
+        </div>
+      </a>
+      <a href="Checklist.html" style="min-width: 0; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border-right: 1.5px solid #0A0A0A; text-decoration: none; color: #0A0A0A">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; margin: -3px 0 0 -3px"><path d="M4 6.5l2 2 3.5-3.5"></path><path d="M4 13.5l2 2 3.5-3.5"></path><path d="M13 7h7M13 14h7M4 20h16"></path></svg>
+          <span aria-hidden="true" style="display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; padding-top: 3px">CHECKLIST</span>
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72)">4 / 13 PACKED</span>
+        </div>
+      </a>
+      <a href="#" style="min-width: 0; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; ; text-decoration: none; color: #0A0A0A">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; margin: -3px 0 0 -3px"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.5a2.5 2.5 0 0 0 0 5V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2.5a2.5 2.5 0 0 0 0-5Z"></path><path d="M15 6v12" stroke-dasharray="2 2"></path></svg>
+          <span aria-hidden="true" style="display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; padding-top: 3px">TICKET</span>
+          <span style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; color: rgba(10,10,10,0.72)">2 DAYS · QR</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <nav aria-label="메인 탭" style="background: #0A0A0A; padding: 8px 28px 22px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); flex-shrink: 0">
+    <a href="DiscoverCarousel.html" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: rgba(243,217,255,0.65)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; line-height: 1">탐색</span>    </a>
+    <a href="Main.html" aria-current="page" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: #F3D9FF">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1"></rect><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.04em; line-height: 1">준비</span>    </a>
+    <a href="RecordHome.html" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: rgba(243,217,255,0.65)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="1"></rect><circle cx="9" cy="10" r="1.75"></circle><path d="M20.5 15.5l-5-5-9.5 9"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; line-height: 1">기록</span>    </a>
+    <a href="#" style="min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: rgba(243,217,255,0.65)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.75"></circle><path d="M4.5 20.5c1.3-3.6 4-5.5 7.5-5.5s6.2 1.9 7.5 5.5"></path></svg>
+      <span style="font-family: 'Josefin Sans', 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; line-height: 1">MY</span>    </a>
+  </nav>
+</div>
+
+</body>
+</html>
