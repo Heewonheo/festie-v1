@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Festie">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<script>if(navigator.standalone||matchMedia("(display-mode: standalone)").matches){location.replace("Main.html")}</script>
+<title>Festie 화면 케이스 전체</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Noto+Sans+KR:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3D9FF;--ink:#0A0A0A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif}
+header{padding:48px clamp(16px,4vw,40px) 8px}
+header h1{margin:0;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:64px;letter-spacing:-0.02em;line-height:.9}
+.start{display:inline-flex;align-items:center;margin-top:18px;min-height:52px;padding:0 22px;background:var(--ink);color:var(--bg);text-decoration:none;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.14em}
+header p{margin:14px 0 0;font-size:14px;color:rgba(10,10,10,.72)}
+section{padding:36px 0 8px}
+h2{margin:0 clamp(16px,4vw,40px) 18px;font-size:16px;display:flex;align-items:baseline;gap:12px;border-top:1.5px solid var(--ink);padding-top:14px}
+h2 span{font-family:'Josefin Sans',sans-serif;font-size:28px;letter-spacing:-0.01em}
+.row{display:flex;gap:20px;overflow-x:auto;padding:0 clamp(16px,4vw,40px) 24px}
+.card{flex:0 0 auto;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink)}
+.frame{width:234px;height:506.4px;border-radius:24px;overflow:hidden;border:1.5px solid var(--ink);background:#fff;position:relative}
+.frame iframe{width:390px;height:844px;border:0;transform:scale(.6);transform-origin:0 0;pointer-events:none;display:block}
+.t{font-size:13px;font-weight:700;max-width:234px}
+.card:hover .frame{box-shadow:6px 6px 0 var(--ink)}
+footer{padding:24px 40px 48px;font-size:12px;color:rgba(10,10,10,.6)}
+</style>
+</head>
+<body>
+<header>
+  <h1>FESTIE</h1>
+  <p>화면 케이스 전체 · 카드를 누르면 실제 크기 화면이 열리고, 화면 안의 버튼·탭으로 다른 화면으로 이동할 수 있어요. 휴대폰에서 홈 화면에 추가하면 앱처럼 전체화면으로 열려요.</p>
+  <a class="start" href="Main.html">프로토타입 시작 →</a>
+</header>
+  <section>
+    <h2><span>PREPARE</span>준비 탭 · 19개 화면</h2>
+    <div class="row">
+      <a class="card" href="Main.html">
+        <div class="frame"><iframe src="Main.html" loading="lazy" tabindex="-1" title="A — 페스티벌 목록 · 기본"></iframe></div>
+        <span class="t">A — 페스티벌 목록 · 기본</span>
+      </a>
+      <a class="card" href="MainDday.html">
+        <div class="frame"><iframe src="MainDday.html" loading="lazy" tabindex="-1" title="A-1 — 페스티벌 목록 · D-DAY 당일"></iframe></div>
+        <span class="t">A-1 — 페스티벌 목록 · D-DAY 당일</span>
+      </a>
+      <a class="card" href="MainEmpty.html">
+        <div class="frame"><iframe src="MainEmpty.html" loading="lazy" tabindex="-1" title="A-2 — 페스티벌 목록 · 빈 상태"></iframe></div>
+        <span class="t">A-2 — 페스티벌 목록 · 빈 상태</span>
+      </a>
+      <a class="card" href="Dashboard.html">
+        <div class="frame"><iframe src="Dashboard.html" loading="lazy" tabindex="-1" title="B — 대시보드 · 동선 3개"></iframe></div>
+        <span class="t">B — 대시보드 · 동선 3개</span>
+      </a>
+      <a class="card" href="DashboardEmpty.html">
+        <div class="frame"><iframe src="DashboardEmpty.html" loading="lazy" tabindex="-1" title="B-1 — 대시보드 · 타임테이블 미설정"></iframe></div>
+        <span class="t">B-1 — 대시보드 · 타임테이블 미설정</span>
+      </a>
+      <a class="card" href="DashboardMany.html">
+        <div class="frame"><iframe src="DashboardMany.html" loading="lazy" tabindex="-1" title="B-2 — 대시보드 · 동선 5개"></iframe></div>
+        <span class="t">B-2 — 대시보드 · 동선 5개</span>
+      </a>
+      <a class="card" href="Timetable.html">
+        <div class="frame"><iframe src="Timetable.html" loading="lazy" tabindex="-1" title="C — 내 타임테이블 · DAY 1"></iframe></div>
+        <span class="t">C — 내 타임테이블 · DAY 1</span>
+      </a>
+      <a class="card" href="TimetableDay2.html">
+        <div class="frame"><iframe src="TimetableDay2.html" loading="lazy" tabindex="-1" title="C-1 — 내 타임테이블 · 고른 공연 없음"></iframe></div>
+        <span class="t">C-1 — 내 타임테이블 · 고른 공연 없음</span>
+      </a>
+      <a class="card" href="TimetableDropdown.html">
+        <div class="frame"><iframe src="TimetableDropdown.html" loading="lazy" tabindex="-1" title="C-2 — 내 타임테이블 · 날짜 선택 열림"></iframe></div>
+        <span class="t">C-2 — 내 타임테이블 · 날짜 선택 열림</span>
+      </a>
+      <a class="card" href="TimetableEdit.html">
+        <div class="frame"><iframe src="TimetableEdit.html" loading="lazy" tabindex="-1" title="D — 타임테이블 편집 · 3개 선택"></iframe></div>
+        <span class="t">D — 타임테이블 편집 · 3개 선택</span>
+      </a>
+      <a class="card" href="TimetableEditNone.html">
+        <div class="frame"><iframe src="TimetableEditNone.html" loading="lazy" tabindex="-1" title="D-1 — 타임테이블 편집 · 선택 전"></iframe></div>
+        <span class="t">D-1 — 타임테이블 편집 · 선택 전</span>
+      </a>
+      <a class="card" href="TimetableEditConflict.html">
+        <div class="frame"><iframe src="TimetableEditConflict.html" loading="lazy" tabindex="-1" title="D-2 — 타임테이블 편집 · 시간 겹침"></iframe></div>
+        <span class="t">D-2 — 타임테이블 편집 · 시간 겹침</span>
+      </a>
+      <a class="card" href="Playlist.html">
+        <div class="frame"><iframe src="Playlist.html" loading="lazy" tabindex="-1" title="E — 플레이리스트 · 기본"></iframe></div>
+        <span class="t">E — 플레이리스트 · 기본</span>
+      </a>
+      <a class="card" href="PlaylistExpanded.html">
+        <div class="frame"><iframe src="PlaylistExpanded.html" loading="lazy" tabindex="-1" title="E-1 — 플레이리스트 · 곡 더보기"></iframe></div>
+        <span class="t">E-1 — 플레이리스트 · 곡 더보기</span>
+      </a>
+      <a class="card" href="PlaylistSheet.html">
+        <div class="frame"><iframe src="PlaylistSheet.html" loading="lazy" tabindex="-1" title="E-2 — 플레이리스트 · 내보내기 시트"></iframe></div>
+        <span class="t">E-2 — 플레이리스트 · 내보내기 시트</span>
+      </a>
+      <a class="card" href="PlaylistExported.html">
+        <div class="frame"><iframe src="PlaylistExported.html" loading="lazy" tabindex="-1" title="E-3 — 플레이리스트 · 내보내기 완료"></iframe></div>
+        <span class="t">E-3 — 플레이리스트 · 내보내기 완료</span>
+      </a>
+      <a class="card" href="Checklist.html">
+        <div class="frame"><iframe src="Checklist.html" loading="lazy" tabindex="-1" title="F — 체크리스트 · 진행 중"></iframe></div>
+        <span class="t">F — 체크리스트 · 진행 중</span>
+      </a>
+      <a class="card" href="ChecklistTyping.html">
+        <div class="frame"><iframe src="ChecklistTyping.html" loading="lazy" tabindex="-1" title="F-1 — 체크리스트 · 항목 입력"></iframe></div>
+        <span class="t">F-1 — 체크리스트 · 항목 입력</span>
+      </a>
+      <a class="card" href="ChecklistDone.html">
+        <div class="frame"><iframe src="ChecklistDone.html" loading="lazy" tabindex="-1" title="F-2 — 체크리스트 · 모두 완료"></iframe></div>
+        <span class="t">F-2 — 체크리스트 · 모두 완료</span>
+      </a>
+    </div>
+  </section>
+  <section>
+    <h2><span>DISCOVER</span>탐색 탭 · 5개 화면</h2>
+    <div class="row">
+      <a class="card" href="DiscoverCarousel.html">
+        <div class="frame"><iframe src="DiscoverCarousel.html" loading="lazy" tabindex="-1" title="A — 탐색 홈 · 기본"></iframe></div>
+        <span class="t">A — 탐색 홈 · 기본</span>
+      </a>
+      <a class="card" href="DiscoverSearch.html">
+        <div class="frame"><iframe src="DiscoverSearch.html" loading="lazy" tabindex="-1" title="A-1 — 탐색 홈 · 검색 결과"></iframe></div>
+        <span class="t">A-1 — 탐색 홈 · 검색 결과</span>
+      </a>
+      <a class="card" href="DiscoverNoResult.html">
+        <div class="frame"><iframe src="DiscoverNoResult.html" loading="lazy" tabindex="-1" title="A-2 — 탐색 홈 · 검색 결과 없음"></iframe></div>
+        <span class="t">A-2 — 탐색 홈 · 검색 결과 없음</span>
+      </a>
+      <a class="card" href="DiscoverDetail.html">
+        <div class="frame"><iframe src="DiscoverDetail.html" loading="lazy" tabindex="-1" title="B — 페스티벌 상세 · 기본"></iframe></div>
+        <span class="t">B — 페스티벌 상세 · 기본</span>
+      </a>
+      <a class="card" href="DiscoverDetailAdded.html">
+        <div class="frame"><iframe src="DiscoverDetailAdded.html" loading="lazy" tabindex="-1" title="B-1 — 페스티벌 상세 · 준비 탭에 담김"></iframe></div>
+        <span class="t">B-1 — 페스티벌 상세 · 준비 탭에 담김</span>
+      </a>
+    </div>
+  </section>
+  <section>
+    <h2><span>RECORD</span>기록 탭 · 8개 화면</h2>
+    <div class="row">
+      <a class="card" href="RecordHomeEmpty.html">
+        <div class="frame"><iframe src="RecordHomeEmpty.html" loading="lazy" tabindex="-1" title="A — 기록 홈 · 빈 상태"></iframe></div>
+        <span class="t">A — 기록 홈 · 빈 상태</span>
+      </a>
+      <a class="card" href="RecordHome.html">
+        <div class="frame"><iframe src="RecordHome.html" loading="lazy" tabindex="-1" title="A-1 — 기록 홈 · 기본"></iframe></div>
+        <span class="t">A-1 — 기록 홈 · 기본</span>
+      </a>
+      <a class="card" href="RecordHomeNew.html">
+        <div class="frame"><iframe src="RecordHomeNew.html" loading="lazy" tabindex="-1" title="A-2 — 기록 홈 · 새 리포트 카드"></iframe></div>
+        <span class="t">A-2 — 기록 홈 · 새 리포트 카드</span>
+      </a>
+      <a class="card" href="RecordEditBlank.html">
+        <div class="frame"><iframe src="RecordEditBlank.html" loading="lazy" tabindex="-1" title="B — 리포트 편집 · 빈 초안"></iframe></div>
+        <span class="t">B — 리포트 편집 · 빈 초안</span>
+      </a>
+      <a class="card" href="RecordEdit.html">
+        <div class="frame"><iframe src="RecordEdit.html" loading="lazy" tabindex="-1" title="B-1 — 리포트 편집 · 작성 중"></iframe></div>
+        <span class="t">B-1 — 리포트 편집 · 작성 중</span>
+      </a>
+      <a class="card" href="RecordDetailPhoto.html">
+        <div class="frame"><iframe src="RecordDetailPhoto.html" loading="lazy" tabindex="-1" title="C — 리포트 · 완성"></iframe></div>
+        <span class="t">C — 리포트 · 완성</span>
+      </a>
+      <a class="card" href="RecordShareSheet.html">
+        <div class="frame"><iframe src="RecordShareSheet.html" loading="lazy" tabindex="-1" title="C-1 — 리포트 · 공유 시트"></iframe></div>
+        <span class="t">C-1 — 리포트 · 공유 시트</span>
+      </a>
+      <a class="card" href="RecordShared.html">
+        <div class="frame"><iframe src="RecordShared.html" loading="lazy" tabindex="-1" title="C-2 — 리포트 · 공유 완료"></iframe></div>
+        <span class="t">C-2 — 리포트 · 공유 완료</span>
+      </a>
+    </div>
+  </section>
+<footer>ICT융합디자인과 졸업작품 · Festie</footer>
+</body>
+</html>
